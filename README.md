@@ -1,4 +1,4 @@
-# ESRC SDK for iOS - Extension for Marvrus
+# ESRC SDK Extension Marvrus for iOS
 
 [![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)](https://github.com/esrc-official/ESRC-SDK-iOS-Extension-Marvrus)
 [![Languages](https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-orange.svg)](https://github.com/esrc-official/ESRC-SDK-iOS-Extension-Marvrus)
@@ -111,28 +111,12 @@ Marvrus.start(
         enableEngagement: true,  // Whether recognize engagement or not. If enableRemoteHR and enableHRV are false, it is also automatically set to false.
         enableMEEIndex: true),  // Whether recognize MEE index or not.
     handler: ESRCHandler() {
-        func onDetectedFace(face: ESRCFace) {
-            // The face is detected.
-            // Through the “face” parameter of the onDetectedFace() callback method,
-            // you can get the location of the face from the result object
-            // that ESRC SDK has passed to the onDetectedFace().
-            …
+        func onRecognizedESRC(id: Int, face: ESRCFace, ...)
+            // The ESRC results are recognized.
+            // Through the paraemters of the onRecognizedESRC() callback method,
+            // you can get the information of the face and heart response from the result object
+            // that ESRC SDK Extension Marvrus has passed to the onRecognizedESRC()
         }
-    
-        // Please implement other callback method of ESRCHandler interface.
-        func onNotDetectedFace() { … }
-        func onAnalyzedMeasureEnv(measureEnv: ESRCMeasureEnv) { … }
-        func onDetectedFacialLandmark(facialLandmark: ESRCFacialLandmark) { … }
-        func onAnalyzedFacialActionUnit(facialActionUnit: ESRCFacialActionUnit) { … }
-        func onRecognizedBasicFacialExpression(facialExpression: ESRCBasicFacialExpression) { … }
-        func onRecognizedValenceFacialExpression(facialExpression: ESRCValenceFacialExpression) { … }
-        func didChangedProgressRatioOnRemoteHR(progressRatio: Double) { … }
-        func onEstimatedRemoteHR(remoteHR: ESRCRemoteHR) { … }
-        func didChangedProgressRatioOnHRV(progressRatio: Double) { … }
-        func onAnalyzedHRV(hrv: ESRCHRV) { … }
-        func onRecognizedEngagement(engagement: ESRCEngagement) { … }
-        func onRecognizedMEEIndex(meeIndex: ESRCMEEIndex) { … }
-        func onRecognizedMEEJson(meeJson: String) { … }
 });
 ```
 
